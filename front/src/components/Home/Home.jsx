@@ -14,9 +14,9 @@ const Home = () => {
 
   const [manufacture, setManufacture] = useState([])
   const [search, setSearch] = useState('')
-  const [data, setData] = useState([])
+  const [data, setData] = useState('')
+  const [busqueda, setBusqueda] = useState(false)
 
-  
   useEffect(() => {
     axios.get(`http://localhost:5000/api/manufactures`)
       .then(res => setManufacture(res.data))
@@ -62,19 +62,19 @@ const Home = () => {
     )
   }
 
-  const handleChange = (event)=> {
+  const handleChange = (event) => {
+    setBusqueda(true)
     setSearch(event.target.value)
     filter(event.target.value)
   }
 
-  const filter = (inputSearch) =>{
+  const filter = (inputSearch) => {
     var searchResult = arr.filter((element) => {
-      if(element.name.toString().toLowerCase().includes(inputSearch.toLowerCase())){
+      if (element.name.toString().toLowerCase().includes(inputSearch.toLowerCase())) {
         return element;
       }
     })
-    arr = searchResult
-    console.log(arr);
+    setData(searchResult)
   }
 
   const columnas = [
@@ -104,7 +104,18 @@ const Home = () => {
       </p>
       <input type="text" value={search} placeholder='Busqueda por articulo o fabricante' onChange={handleChange} />
       <button>Buscar</button>
-      <DataTable
+      {busqueda === true ? <DataTable
+        columns={columnas}
+        data={data}
+        title={'Productos'}
+        progressPending={loading}
+        pagination={true}
+        fixedHeaderScrollHeight={'30em'}
+        defaultSortFieldId={3}
+        expandableRows
+        sortFunction={customSort}
+        expandableRowsComponent={ExpandedComponent}
+      /> : <DataTable
         columns={columnas}
         data={arr}
         title={'Productos'}
@@ -115,7 +126,7 @@ const Home = () => {
         expandableRows
         sortFunction={customSort}
         expandableRowsComponent={ExpandedComponent}
-      />
+      />}
     </section>
 
 
