@@ -1,8 +1,7 @@
 //Imports
 const express = require('express');
 require('dotenv').config();
-// require('./utils/mongo-db');
-// require('utils/postgress-sql');
+require('./utils/postgress-sql');
 const routes = require ('./routes/routes');
 
 const app = express();
