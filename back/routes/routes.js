@@ -5,6 +5,7 @@ const pages = require('../controllers/api_controller')
 
 router.get('/', pages.home)
 router.get('/products', pages.products)
+router.get('/manufactures', pages.manufacture)
 
 
 
