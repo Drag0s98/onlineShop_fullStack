@@ -20,7 +20,7 @@ const entries = {
         let result;
         try {
             sql_query = (`
-           SELECT name, direction, cif FROM public.manufactures;
+            SELECT manufactures_key, name, direction, cif FROM manufactures;
            `)
             result = await pool.query(sql_query)
         } catch (error) {

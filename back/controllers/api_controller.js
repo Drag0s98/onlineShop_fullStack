@@ -19,7 +19,7 @@ const pages = {
     },
     manufacture: async (req, res) => {
         try {
-            let data = await sql.getManufacture()
+            let data = await sql.getManufactures()
             res.status(200).json(data.rows)
         } catch (error) {
             res.status(400).json({ message: error })
