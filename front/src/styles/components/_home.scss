@@ -30,6 +30,9 @@
     background-color: $primary-color-blue;
     color: $primary-color-orange;
   }
+  & > .hHSTiF > div > div > div {
+    background-color: $primary-color-blue;
+  }
   & > .hHSTiF > div > div > div > div {
     background-color: $primary-color-blue;
     color: $primary-color-orange;
@@ -42,10 +45,10 @@
     }
   }
   & > .hHSTiF > div > div > .rdt_TableBody > .rdt_ExpanderRow {
-      @include center;
-      & > div > img {
-          border-radius: 50%;
-          margin-bottom: 1em;      
-      }
+    @include center;
+    & > div > img {
+      border-radius: 50%;
+      margin-bottom: 1em;
+    }
   }
 }

@@ -101,7 +101,7 @@ const Home = () => {
       <article className='inpBox'>
         <input type="text" value={search} placeholder='Busqueda por articulo o fabricante' onChange={handleChange} />
         <button>
-          <FontAwesomeIcon icon={faSearch} size='lg' color='#FCA311' />
+          <FontAwesomeIcon icon={faSearch} size='lg' color='#F5CB5C' />
         </button>
       </article>
       <article className='tableBox'>
