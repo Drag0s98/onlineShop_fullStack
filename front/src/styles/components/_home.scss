@@ -1,0 +1,51 @@
+.homeBox {
+  width: 100%;
+  @include center;
+  flex-direction: column;
+}
+.inpBox {
+  margin-top: 1rem;
+  background-color: $primary-color-blue;
+  border-radius: 5px;
+  & > input {
+    background-color: $primary-color-blue;
+    color: $primary-color-orange;
+    width: 15em;
+    height: 2.5em;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+  }
+
+  & > button {
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+  }
+}
+.tableBox {
+  margin: 3em;
+  width: 100%;
+  & > .rdt_TableHeader {
+    background-color: $primary-color-blue;
+    color: $primary-color-orange;
+  }
+  & > .hHSTiF > div > div > div > div {
+    background-color: $primary-color-blue;
+    color: $primary-color-orange;
+  }
+  & > div:nth-child(3) > .rdt_Pagination {
+    background-color: $primary-color-blue;
+    color: $primary-color-orange;
+    & > div > button {
+      background-color: $primary-color-orange;
+    }
+  }
+  & > .hHSTiF > div > div > .rdt_TableBody > .rdt_ExpanderRow {
+      @include center;
+      & > div > img {
+          border-radius: 50%;
+          margin-bottom: 1em;      
+      }
+  }
+}

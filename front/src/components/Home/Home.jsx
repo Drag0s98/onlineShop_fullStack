@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import DataTable from 'react-data-table-component';
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 
 import axiosHook from '../../hooks/axios-hook';
-
-
-
 
 const Home = () => {
 
@@ -21,7 +21,6 @@ const Home = () => {
     axios.get(`http://localhost:5000/api/manufactures`)
       .then(res => setManufacture(res.data))
   }, [loading])
-
 
   let arr = result.slice(0, 99)
 
@@ -98,35 +97,38 @@ const Home = () => {
   ]
 
   return (
-    <section>
-      <p>
-        Esto es el home
-      </p>
-      <input type="text" value={search} placeholder='Busqueda por articulo o fabricante' onChange={handleChange} />
-      <button>Buscar</button>
-      {busqueda === true ? <DataTable
-        columns={columnas}
-        data={data}
-        title={'Productos'}
-        progressPending={loading}
-        pagination={true}
-        fixedHeaderScrollHeight={'30em'}
-        defaultSortFieldId={3}
-        expandableRows
-        sortFunction={customSort}
-        expandableRowsComponent={ExpandedComponent}
-      /> : <DataTable
-        columns={columnas}
-        data={arr}
-        title={'Productos'}
-        progressPending={loading}
-        pagination={true}
-        fixedHeaderScrollHeight={'30em'}
-        defaultSortFieldId={3}
-        expandableRows
-        sortFunction={customSort}
-        expandableRowsComponent={ExpandedComponent}
-      />}
+    <section className='homeBox'>
+      <article className='inpBox'>
+        <input type="text" value={search} placeholder='Busqueda por articulo o fabricante' onChange={handleChange} />
+        <button>
+          <FontAwesomeIcon icon={faSearch} size='lg' color='#FCA311' />
+        </button>
+      </article>
+      <article className='tableBox'>
+        {busqueda === true ? <DataTable
+          columns={columnas}
+          data={data}
+          title={'Productos'}
+          progressPending={loading}
+          pagination={true}
+          fixedHeaderScrollHeight={'30em'}
+          defaultSortFieldId={3}
+          expandableRows
+          sortFunction={customSort}
+          expandableRowsComponent={ExpandedComponent}
+        /> : <DataTable
+          columns={columnas}
+          data={arr}
+          title={'Productos'}
+          progressPending={loading}
+          pagination={true}
+          fixedHeaderScrollHeight={'10em'}
+          defaultSortFieldId={3}
+          expandableRows
+          sortFunction={customSort}
+          expandableRowsComponent={ExpandedComponent}
+        />}
+      </article>
     </section>
 
 
