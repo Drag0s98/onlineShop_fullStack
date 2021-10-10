@@ -1,0 +1,15 @@
+footer{
+    background-color: #242423;
+}
+.footerBox{
+    color: #E8EDDF;
+    @include center;
+    font-size: 10px;    
+    flex-direction: column;
+}
+.footer_mid{
+    margin-bottom: 1em;
+    & > a > .icon1 {
+        color: $primary-color-orange;
+    }
+}
