@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,700");
+@import "./utils/mixins";
+@import "./utils/variables";
+
+@import "./views/app";
+@import "./components/header";
+@import "./components/nav";
+@import "./components/main";
+@import "./components/home";
+@import "./components/footer";
+@import "./components/error";
+
+/* 
+https://coolors.co/000000-14213d-fca311-e5e5e5-ffffff
+*/

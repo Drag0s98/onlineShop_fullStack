@@ -1,0 +1,33 @@
+.bm-burger-button {
+  width: 36px !important;
+  height: 30px !important;
+  margin: 1rem;
+  position: absolute;
+  left: 83%;
+  & > button {
+    width: 35px !important;
+    height: 35px !important;  
+  }
+}
+.bm-menu {
+  background: $primary-color-blue;
+  height: 10em !important;
+  border-radius: 10px;
+  color: $primary-color-orange;
+  overflow: hidden !important;
+}
+.bm-overlay {
+  background: transparent !important;
+}
+
+.bm-item-list {
+  margin-left: 1rem;
+  margin-top: 10px;
+}
+/* ******* MEDIA QUERIES ******* */
+
+@media (min-width: $breakpoint-tablet) {
+  .bm-burger-button{
+    left: 90%;
+  }
+}
