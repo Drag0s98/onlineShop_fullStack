@@ -1,7 +1,7 @@
 import React from "react";
 import { fallDown as Menu } from 'react-burger-menu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faHamburger } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import './Nav.scss'
 
@@ -10,7 +10,10 @@ const Nav = () => {
 
 
   return (
-    <Menu right width={'30%'} customBurgerIcon={<FontAwesomeIcon icon={faBars} />} >
+    <Menu width={'30%'}
+      customCrossIcon={<FontAwesomeIcon icon={faTimes} color='#F5CB5C' spin />}
+      customBurgerIcon={<FontAwesomeIcon icon={faBars} />}
+      right  >
       <p>Link1</p>
       <p>Link2</p>
       <p>Link3</p>

@@ -28,9 +28,8 @@ const Home = () => {
     return rows.sort((rowA, rowB) => {
       const aField = parseInt(selector(rowA))
       const bField = parseInt(selector(rowB))
-
       let comparison = 0;
-
+      
       if (aField > bField) {
         comparison = -1;
       } else if (aField < bField) {
@@ -108,7 +107,7 @@ const Home = () => {
         {busqueda === true ? <DataTable
           columns={columnas}
           data={data}
-          title={'Productos'}
+          title={'List of products'}
           progressPending={loading}
           pagination={true}
           fixedHeaderScrollHeight={'30em'}
@@ -119,7 +118,7 @@ const Home = () => {
         /> : <DataTable
           columns={columnas}
           data={arr}
-          title={'Productos'}
+          title={'List of products'}
           progressPending={loading}
           pagination={true}
           fixedHeaderScrollHeight={'10em'}
