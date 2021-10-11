@@ -5,7 +5,7 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import './Nav.scss'
 
-const Nav = () => {
+const Nav = ({ mockClick }) => {
 
 
 
@@ -13,7 +13,7 @@ const Nav = () => {
     <Menu width={'30%'}
       customCrossIcon={<FontAwesomeIcon icon={faTimes} color='#F5CB5C' spin />}
       customBurgerIcon={<FontAwesomeIcon icon={faBars} />}
-      right  >
+      right onOpen={mockClick} onClose={mockClick} >
       <p>Link1</p>
       <p>Link2</p>
       <p>Link3</p>
