@@ -1,18 +1,20 @@
-const { response } = require('express')
 const supertest = require('supertest')
-const {app, server} = require('../app')
+const { app, server } = require('../app')
 
 const api = supertest(app)
 
 describe('api funtionality', () => {
-    test('products are returned as json with 107 objects', async() => {
-       const response = await api
+    test('products are returned as json with 107 objects', async () => {
+        await api
             .get('/api/products')
             .expect(200)
             .expect('Content-Type', /application\/json/)
-            .expect(response.body).toHaveLength(107)
     })
-    test('manufactures are returned as json', async() => {
+    test('there are 107 products', async () => {
+        const response = await api.get('/api/products')
+        expect(response.body).toHaveLength(107)
+    })
+    test('manufactures are returned as json', async () => {
         await api
             .get('/api/manufactures')
             .expect(200)

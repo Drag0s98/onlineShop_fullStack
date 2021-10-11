@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=development jest --verbose --silent --detectOpenHandles",
-    "dev": "NODE_ENV=development nodemon app.js",
-    "start": "NODE_ENV=production node app.js"
+    "test": "cross-env NODE_ENV=development jest --verbose --silent --detectOpenHandles",
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "start": "cross-env NODE_ENV=production node app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Drag0s98/onlineShop_fullStack#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongodb": "^4.1.3",
