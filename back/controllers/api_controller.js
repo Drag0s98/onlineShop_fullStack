@@ -1,11 +1,11 @@
 //Imports
-const sql = require('../models/entries')
 const { Manufactures, Articles } = require('../models/models')
+
 
 const pages = {
     home: (req, res) => {
         try {
-            res.status(200).json({ message: 'Welcome to api shop' })
+            res.status(200).json({ message: 'Welcome to MERN Shop' })
         } catch (error) {
             res.status(400).json({ message: error })
         }
