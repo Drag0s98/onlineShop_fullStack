@@ -23,7 +23,7 @@ app.get('*', (req, res) => {
     res.status(400).json({ message: 'A error has occured' })
 })
 
-app.listen(port, async () => {
+const server = app.listen(port, async () => {
     console.log(`Server working on: ${port}`);
     //Connect to DB
     try {
@@ -35,3 +35,5 @@ app.listen(port, async () => {
     }
 
 })
+
+module.exports = { app, server }; //Exports for testing
