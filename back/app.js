@@ -7,7 +7,7 @@ const sequelize = require('./utils/postgress-sql')
 const routes = require('./routes/routes');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 
 //Middlewares
 app.use(express.urlencoded({
@@ -23,11 +23,15 @@ app.get('*', (req, res) => {
     res.status(400).json({ message: 'A error has occured' })
 })
 
-app.listen(port, () => {
+app.listen(port, async () => {
     console.log(`Server working on: ${port}`);
     //Connect to DB
+    try {
+        //replace .authenticate() for .sync({ force: false }) to add CREATE TABLE IF NOT EXIST <tableName>
+        await sequelize.authenticate();
+        console.log('Connection has been established successfully.');
+    } catch (error) {
+        console.error('Unable to connect to the database:', error);
+    }
 
-    sequelize.authenticate() //replace .authenticate() for .sync({ force: false }) to add CREATE TABLE IF NOT EXIST <tableName>
-        .then(() => console.log('Database connected'))
-        .catch((err) => console.log('Error when connecting the database ==> ') + err)
 })
