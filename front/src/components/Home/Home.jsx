@@ -79,7 +79,7 @@ const Home = () => {
                   <p>CIF: {param.cif}</p>
                 </div>
               )
-            }else{
+            } else {
               return null;
             }
           })}
@@ -98,7 +98,7 @@ const Home = () => {
     var searchResult = arr.filter((element) => {
       if (element.name.toString().toLowerCase().includes(inputSearch.toLowerCase())) {
         return element;
-      }else{
+      } else {
         return null;
       }
     })
@@ -119,13 +119,15 @@ const Home = () => {
   }
 
   const contextActions = React.useMemo(() => {
-    
+
     return (
-      <Link to='/auth'>
-        <button key="delete" style={{ backgroundColor: 'red' }} >
-          Add Cart
-        </button>
-      </Link>
+      <>
+        <Link to='/cart'>
+          <button key="delete" style={{ backgroundColor: 'red' }} >
+            Add Cart
+          </button>
+        </Link>
+      </>
     );
   }, []);
 
