@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+import './App.css'
 
 import { auth } from './firebase'
 import { DataContext } from './context/auth.context'
