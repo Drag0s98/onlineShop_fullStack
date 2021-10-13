@@ -1,0 +1,91 @@
+.cartBox{ 
+    @include center;
+    flex-direction: column;
+    margin-top: 5em;
+}
+
+.cardBox{ 
+    width: 90%;
+    height: 100%;
+    background-color: whitesmoke;
+    margin-bottom: 3em;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px black;
+}
+.topCard{
+    width: 35%;
+    float: left;
+    margin: 1em;
+    & > img {
+        width: 120px;
+        height: 120px;
+        border-radius: 5px;
+    }
+}
+.midCard {
+    width: 20em;
+    margin-top: 1em;
+    & > h3 {
+        font-size: 18px;
+    }
+}
+.botCard{
+    @include center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1em;
+    border-top: 1px groove honeydew;
+    & > .remove_btn {
+        width: 8em;
+        height: 2em;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(246, 88, 88);
+        color: whitesmoke;
+    }
+}
+.btnBuy {
+    margin-bottom: 1em;
+    width: 10em;
+    height: 2em;
+    border-radius: 5px;
+    border: 2px groove $primary-color-orange;
+    box-shadow: 5px 5px 5px black;
+    background-color: $primary-color-grey;
+}
+
+@media (min-width: $breakpoint-tablet) {
+    .topCard{
+        & > img{
+            width: 180px;
+            height: 180px;
+        }
+    }
+    .midCard{
+        margin-top: 2em;
+        width: 40em;
+        & > h3 { 
+            font-size: 1.5em;
+        }
+    }
+    .botCard{
+        font-size: 1.5em;
+    }
+    .btnBuy{ 
+        width: 12em;
+        height: 3em;
+    }
+}
+
+@media (min-width: $breakpoint-pc){
+    .cardBox{
+        width: 60%;
+    }
+    .topCard{
+        width: 220px;
+        height: 220px;
+    }
+    .midCard{
+        width: 60em;
+    }
+}

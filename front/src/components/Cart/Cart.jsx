@@ -12,30 +12,26 @@ const Cart = () => {
   }
 
   return (
-    <div>
+    <section className='cartBox' >
       {cart.map((param, i) => {
         return (
-          <section className='cartBox' key={i}>
-            <article className='cardBox'>
+            <article className='cardBox'key={i}>
               <div className='topCard'>
                 <img src={param.images} alt={param.name} />
               </div>
               <div className='midCard'>
                 <h3>{param.name}</h3>
-                <p>{param.price}</p>
               </div>
               <div className='botCard'>
+                <p className='price'>Price: {param.price}</p>
                 <p>Calification: {param.relevance}</p>
+              <button className='remove_btn' onClick={() => remove(i)}>Remove</button>
               </div>
-              <button onClick={() => remove(i)}>Remove</button>
             </article>
-            <article className='btn_buy_box'>
-              <button className='btnBuy'>Buy!</button>
-            </article>
-          </section>
         )
       })}
-    </div>
+      <button className='btnBuy'>Buy!</button>
+    </section>
 
   );
 };
