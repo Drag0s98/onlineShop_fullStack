@@ -19,15 +19,47 @@
 .bm-overlay {
   background: transparent !important;
 }
+.bm-menu-wrap{
+  height: 10em !important;
+}
 
 .bm-item-list {
   margin-left: 1rem;
-  margin-top: 10px;
+  @include center;
+  flex-direction: column;
+  & > .bm-item{
+    text-decoration: none;
+    color: $primary-color-orange;
+    margin-top: 0.5em;
+  }
+  & > button { 
+    background-color: $primary-color-grey;
+    color: black !important;
+    border-radius: 10px;
+    border: none;
+    width: 5em;
+    &:active { 
+      background-color: $primary-color-orange;
+      transition-duration: 1s;
+    }
+  }
 }
+
 /* ******* MEDIA QUERIES ******* */
 
 @media (min-width: $breakpoint-tablet) {
   .bm-burger-button{
     left: 90%;
+  }
+  .bm-item-list{
+    & > .bm-item{
+      font-size: 1.3em;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  .bm-menu-wrap{
+    width: 20% !important;
   }
 }

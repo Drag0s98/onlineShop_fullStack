@@ -19,8 +19,8 @@ const Nav = ({ mockClick }) => {
       customCrossIcon={<FontAwesomeIcon icon={faTimes} color='#F5CB5C' spin />}
       customBurgerIcon={<FontAwesomeIcon icon={faBars} />}
       right onOpen={mockClick} onClose={mockClick} >
-      <Link to='/'>Home</Link>
       <Link to='/auth'>Sign In</Link>
+      <Link to='/'>Home</Link>
       {user != null ? <button onClick={() => auth.signOut()}>Log Out</button> : ''}
     </Menu>
   );

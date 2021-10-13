@@ -10,7 +10,7 @@ const Register = () => {
 
   const register = e => {
     e.preventDefault();
-  
+
     auth.createUserWithEmailAndPassword(
       emailRef.current.value,
       passRef.current.value,
@@ -30,15 +30,16 @@ const Register = () => {
   };
 
   return (
-    <section>
+    <section className='authBox'>
       <article className='registerForm'>
-        <form onSubmit={register}>
+        <form onSubmit={register} className='authForm'>
           <h1>Sign In</h1>
-          <input type="email" ref={emailRef} />
-          <br />
-          <input type="password" ref={passRef} />
-          <br />
-          <button onClick={login}>Log In</button><button onClick={register}>Register</button>
+          <input type="email" ref={emailRef} placeholder='email@email.com' />
+          <input type="password" ref={passRef} placeholder='******' />
+          <button onClick={login} className='logIn_btn'>Log In</button>
+          <p className='registerText'>You are not register?</p>
+          <button onClick={register} className='register_btn'>Register</button>
+          
         </form>
       </article>
     </section>

@@ -123,7 +123,7 @@ const Home = () => {
     return (
       <>
         <Link to='/cart'>
-          <button key="delete" style={{ backgroundColor: 'red' }} >
+          <button key="delete" className='add_btn' >
             Add Cart
           </button>
         </Link>

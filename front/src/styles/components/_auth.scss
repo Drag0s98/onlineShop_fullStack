@@ -1,0 +1,91 @@
+.authBox{
+    width: 100%;
+    height: 100vh;
+    @include center;
+}
+.registerForm {
+    width: 90%;
+    height: 70%;
+    @include center;
+}
+.authForm{
+    height: 90%;
+    @include center;
+    flex-direction: column;
+    justify-content: space-around;
+
+    & > h1 {
+        color: $primary-color-grey;
+        font-size: 2.2em;
+    }
+    & > input { 
+        height: 2.5em;
+        border-radius: 10px;
+        box-shadow: 3px 2px 5px black
+    }
+    & > .logIn_btn {
+        width: 8em;
+        height: 2.5em;
+        border-radius: 10px;
+        background-color: $primary-color-orange;
+        color: gray;
+        border: none;
+        box-shadow: 5px 3px 5px black;
+        
+    }
+    & > .logIn_btn:active, *:hover{ 
+        transform: scale(1.2);
+        transition-duration: 0.5s;
+    }
+    & > .registerText{ 
+        color: gainsboro;
+    }
+    & > .register_btn { 
+        width: 8em;
+        height: 2.5em;
+        border-radius: 10px;
+        background-color: $primary-color-grey;
+        border: none;
+        box-shadow: 5px 3px 5px black;
+    }
+    & > .register_btn:active, *:hover {
+        transform: translateY(-1px);
+        transform: scale(1.1);
+        background-color: $primary-color-orange;
+        transition-duration: 0.5s;
+    }
+}
+
+
+/* *******Media Query *********** */ 
+
+@media (min-width: $breakpoint-tablet){
+.authForm{
+    & > h1{ 
+        font-size: 3em;
+    }
+    & > input {
+        width: 20em;
+        height: 3em;
+        transition-duration: 1s;
+    }
+    & > .logIn_btn{
+        width: 12em;        
+        height: 3em;
+    }
+    & > .register_btn{
+        width: 12em;
+        height: 3em;
+        transition-duration: 1s;
+    }
+}
+}
+
+@media (min-width: $breakpoint-pc){
+    .authForm{
+        background-color: rgb(88, 88, 88);
+        width: 30em;
+        border-radius: 10px;
+        transition-duration: 1.5s;
+    }
+}
