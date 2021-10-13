@@ -25,6 +25,7 @@ A project that try to recreate a online shop, with products and manufactures inf
 - express(v4.17.1)
 - node-fetch(v3.0.0)
 - Postgress(v8.7.1)
+- Firebase(v9.1.2)
 
 ### Installing
 
@@ -49,6 +50,10 @@ ex. [@drag0s98](https://www.linkedin.com/in/dragos98/)
     - Initial release
 - 1.0.2
     - Testing & Sequelize
+- 2.0.0
+    - Auth & Shop-Cart
+- 2.0.1(In Development)
+    - Dockers & Testing E2E
 
 ## License
 

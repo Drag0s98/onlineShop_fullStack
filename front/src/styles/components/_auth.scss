@@ -2,6 +2,7 @@
     width: 100%;
     height: 100vh;
     @include center;
+    flex-direction: column;
 }
 .registerForm {
     width: 90%;
@@ -52,10 +53,27 @@
         transform: translateY(-1px);
         transform: scale(1.1);
         background-color: $primary-color-orange;
-        transition-duration: 0.5s;
+        transition-duration: 2s;
     }
 }
+.errorBox{
+    background-color: rgba(177, 63, 63, 0.561);
+    margin-left: 1em;
+    margin-right: 1em;
+    color: white;
+    border-radius: 10px;
+    animation-name: nose;
+    animation-duration: 0.5s;
+    position: relative;
+    @keyframes nose {
+        0%   {bottom:200px;}
+        100% {bottom:0px;}
+    }
+    & > h2 {
+        margin: 5px;
 
+    }
+}
 
 /* *******Media Query *********** */ 
 

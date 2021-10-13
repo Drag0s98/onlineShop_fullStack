@@ -52,8 +52,9 @@ const Home = () => {
 
   const customSort = (rows, selector, direction) => {
     return rows.sort((rowA, rowB) => {
-      const aField = parseInt(selector(rowA))
-      const bField = parseInt(selector(rowB))
+      const aField = selector(rowA)
+      const bField = selector(rowB)
+
       let comparison = 0;
 
       if (aField > bField) {
@@ -122,11 +123,14 @@ const Home = () => {
 
     return (
       <>
-        <Link to='/cart'>
+        {user !== null ? <Link to='/cart'>
           <button key="delete" className='add_btn' >
             Add Cart
           </button>
-        </Link>
+        </Link>: 'You need to register first'}
+
+
+
       </>
     );
   }, []);
@@ -149,13 +153,12 @@ const Home = () => {
           pagination={true}
           fixedHeaderScrollHeight={'30em'}
           defaultSortFieldId={3}
-          expandableRows
           sortFunction={customSort}
+          expandableRows
           expandableRowsComponent={ExpandedComponent}
           selectableRows
           onSelectedRowsChange={handleRowSelected}
           contextActions={contextActions}
-
         /> : <DataTable
           columns={columnas}
           data={arr}
@@ -164,8 +167,8 @@ const Home = () => {
           pagination={true}
           fixedHeaderScrollHeight={'10em'}
           defaultSortFieldId={3}
-          expandableRows
           sortFunction={customSort}
+          expandableRows
           expandableRowsComponent={ExpandedComponent}
           selectableRows
           onSelectedRowsChange={handleRowSelected}

@@ -1,13 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import './Header.scss'
 import Nav from '../Nav'
 
 const Header = () => {
   return (
     <header>
-      <h1 className='title'>MERN-Shop</h1>
-      <Nav/>
+      <Link to='/' className='titleLink'>
+        <h1 className='title'>FStack-Shop</h1>
+      </Link>
+      <Nav />
     </header>
   );
 };
