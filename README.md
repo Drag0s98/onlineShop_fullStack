@@ -30,6 +30,7 @@ A project that try to recreate a online shop, with products and manufactures inf
 ### Installing
 
 - git clone (repo url)
+
 - npm i -> on main folder
 
 ### Executing program
