@@ -25,10 +25,12 @@ A project that try to recreate a online shop, with products and manufactures inf
 - express(v4.17.1)
 - node-fetch(v3.0.0)
 - Postgress(v8.7.1)
+- Firebase(v9.1.2)
 
 ### Installing
 
-- git clone <repo url>
+- git clone (repo url)
+
 - npm i -> on main folder
 
 ### Executing program
@@ -46,7 +48,13 @@ ex. [@drag0s98](https://www.linkedin.com/in/dragos98/)
 ## Version History
 
 - 1.0.0
-  - Initial release
+    - Initial release
+- 1.0.2
+    - Testing & Sequelize
+- 2.0.0
+    - Auth & Shop-Cart
+- 2.0.1(In Development)
+    - Dockers & Testing E2E
 
 ## License
 

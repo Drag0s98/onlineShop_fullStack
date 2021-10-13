@@ -1,10 +1,11 @@
 import React from "react";
-import { shallow } from "enzyme";
+import '@testing-library/jest-dom/extend-expect';
+import { render, fireEvent, prettyDOM } from '@testing-library/react';
 import Header from "./Header";
 
-describe("Header", () => {
-  test("matches snapshot", () => {
-    const wrapper = shallow(<Header />);
-    expect(wrapper).toMatchSnapshot();
-  });
-});
+describe('Header tests', () => {
+    test('Have a title', () => {
+        const component = render(<Header />)
+        component.getByText('MERN-Shop')
+    })
+})

@@ -1,21 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import DataTable from 'react-data-table-component';
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
+import { DataContext } from "../../context/auth.context";
 
 import axiosHook from '../../hooks/axios-hook';
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
   const { loading, result } = axiosHook(`http://localhost:5000/api/products`)
 
+  const { cart, setCart } = useContext(DataContext)
+
+  const { user } = useContext(DataContext)
+
   const [manufacture, setManufacture] = useState([])
   const [search, setSearch] = useState('')
   const [data, setData] = useState('')
   const [busqueda, setBusqueda] = useState(false)
+
 
   useEffect(() => {
     axios.get(`http://localhost:5000/api/manufactures`)
@@ -23,13 +30,33 @@ const Home = () => {
   }, [loading])
 
   let arr = result.slice(0, 99)
+  const columnas = [
+    {
+      name: 'name',
+      selector: row => row.name,
+
+    },
+    {
+      name: 'price',
+      selector: row => row.price,
+      sortable: true,
+
+    },
+    {
+      name: 'relevance',
+      selector: row => row.relevance,
+      sortable: true,
+      omit: true,
+    }
+  ]
 
   const customSort = (rows, selector, direction) => {
     return rows.sort((rowA, rowB) => {
-      const aField = parseInt(selector(rowA))
-      const bField = parseInt(selector(rowB))
+      const aField = selector(rowA)
+      const bField = selector(rowB)
+
       let comparison = 0;
-      
+
       if (aField > bField) {
         comparison = -1;
       } else if (aField < bField) {
@@ -53,6 +80,8 @@ const Home = () => {
                   <p>CIF: {param.cif}</p>
                 </div>
               )
+            } else {
+              return null;
             }
           })}
         <img src={data.images} alt={data.name} width='250em' height='250em' />
@@ -70,30 +99,42 @@ const Home = () => {
     var searchResult = arr.filter((element) => {
       if (element.name.toString().toLowerCase().includes(inputSearch.toLowerCase())) {
         return element;
+      } else {
+        return null;
       }
     })
     setData(searchResult)
   }
 
-  const columnas = [
-    {
-      name: 'name',
-      selector: row => row.name,
-
-    },
-    {
-      name: 'price',
-      selector: row => row.price,
-      sortable: true,
-
-    },
-    {
-      name: 'relevance',
-      selector: row => row.relevance,
-      sortable: true,
-      omit: true,
+  const handleRowSelected = (event) => {
+    if (user != null) {
+      const selected = event.selectedRows
+      setCart(selected.filter(function (param) {
+        if (!cart.includes(param.article_key)) {
+          return param.article_key
+        } else {
+          return null;
+        }
+      }))
     }
-  ]
+  }
+
+  const contextActions = React.useMemo(() => {
+
+    return (
+      <>
+        {user !== null ? <Link to='/cart'>
+          <button key="delete" className='add_btn' >
+            Add Cart
+          </button>
+        </Link>: 'You need to register first'}
+
+
+
+      </>
+    );
+  }, []);
+
 
   return (
     <section className='homeBox'>
@@ -112,9 +153,12 @@ const Home = () => {
           pagination={true}
           fixedHeaderScrollHeight={'30em'}
           defaultSortFieldId={3}
-          expandableRows
           sortFunction={customSort}
+          expandableRows
           expandableRowsComponent={ExpandedComponent}
+          selectableRows
+          onSelectedRowsChange={handleRowSelected}
+          contextActions={contextActions}
         /> : <DataTable
           columns={columnas}
           data={arr}
@@ -123,14 +167,15 @@ const Home = () => {
           pagination={true}
           fixedHeaderScrollHeight={'10em'}
           defaultSortFieldId={3}
-          expandableRows
           sortFunction={customSort}
+          expandableRows
           expandableRowsComponent={ExpandedComponent}
+          selectableRows
+          onSelectedRowsChange={handleRowSelected}
+          contextActions={contextActions}
         />}
       </article>
     </section>
-
-
   );
 };
 

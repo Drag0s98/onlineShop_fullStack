@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <section className='footerBox'>
         <article className='footer_left'>
-          <p>PokeReact made with React </p>
+          <p>E-Commerce made with React </p>
         </article>
         <article className='footer_mid'>
           <a href="https://github.com/Drag0s98">
