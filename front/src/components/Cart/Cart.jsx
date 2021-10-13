@@ -23,7 +23,7 @@ const Cart = () => {
                 <h3>{param.name}</h3>
               </div>
               <div className='botCard'>
-                <p className='price'>Price: {param.price}</p>
+                <p className='price'>Price: {param.price} €</p>
                 <p>Calification: {param.relevance}</p>
               <button className='remove_btn' onClick={() => remove(i)}>Remove</button>
               </div>

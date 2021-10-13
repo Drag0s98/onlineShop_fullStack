@@ -5,8 +5,13 @@ header{
     display: flex;
     justify-content: space-between;
 
-    & > .title { 
-        margin: 1rem;
-    }
 
+    & > .titleLink { 
+        text-decoration: none;
+        color: grey;
+        margin: 1rem;
+        &:hover {
+            color: gray;
+        }
+    }
 }
