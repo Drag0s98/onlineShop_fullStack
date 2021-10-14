@@ -3,7 +3,6 @@ import { fallDown as Menu } from 'react-burger-menu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom'
-import { Redirect } from 'react-router'
 
 import { auth } from '../../firebase';
 import { DataContext } from "../../context/auth.context";

@@ -133,7 +133,7 @@ const Home = () => {
 
       </>
     );
-  }, []);
+  }, [user]);
 
 
   return (
