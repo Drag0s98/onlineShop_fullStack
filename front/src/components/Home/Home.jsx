@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
 
-  const { loading, result } = axiosHook(`http://localhost:5000/api/products`)
+  const { loading, result } = axiosHook(`https://mymernshop.herokuapp.com/api/products`)
 
   const { cart, setCart } = useContext(DataContext)
 
@@ -25,7 +25,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/manufactures`)
+    axios.get(`https://mymernshop.herokuapp.com/api/manufactures`)
       .then(res => setManufacture(res.data))
   }, [loading])
 
